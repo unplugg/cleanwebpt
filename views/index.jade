@@ -17,11 +17,15 @@ block content
 block sidebar
   .widget
     h1 Want to Participate?
-    p
-      | Sed auctor neque eu tellus rhoncus ut
-      | eleifend nibh porttitor. Ut in nulla enim.
-    
-    p
-      | Vivamus hendrerit arcu sed erat molestie
-      | vehicula.
+    #invite_box
+      p
+        | Send us your email and 
+        | we will keep you updated
 
+      form(method='post', action='/users')
+        label Email:
+          input(name='user[email]', type='text')
+        br
+        button(type='submit') Submit
+
+      p #{message}
